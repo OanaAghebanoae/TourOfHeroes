@@ -5,6 +5,7 @@ import { Hero } from '../hero';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -13,10 +14,11 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes.component.scss'],
   imports: [
     FormsModule,
+    RouterModule,
     NgIf,
     NgFor,
     UpperCasePipe,
-    HeroDetailComponent
+    HeroDetailComponent,
   ],
 })
 export class HeroesComponent {
@@ -27,11 +29,6 @@ export class HeroesComponent {
 
   ngOnInit(): void {
     this.getHeroes();
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
   getHeroes(): void {
