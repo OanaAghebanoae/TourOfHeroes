@@ -10,23 +10,9 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: false
+      name:
+        description: "Who to greet"
+        default: "World"
 
 jobs:
   build_and_deploy_job:
